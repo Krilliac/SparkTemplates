@@ -1,0 +1,8 @@
+{
+    "projectName": "ProceduralWorld",
+    "version": "0.1.0",
+    "engineVersion": "1.0.0",
+    "description": "Procedural world generation — noise terrain, erosion, object scattering, and Wave Function Collapse.",
+    "modules": ["ProceduralWorld"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

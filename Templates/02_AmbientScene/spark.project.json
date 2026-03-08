@@ -1,0 +1,8 @@
+{
+    "projectName": "AmbientScene",
+    "version": "0.1.0",
+    "engineVersion": "1.0.0",
+    "description": "Ambient environment scene — day/night cycle, weather, directional + point lights, fog.",
+    "modules": ["AmbientScene"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

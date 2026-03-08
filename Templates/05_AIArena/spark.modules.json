@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "AIArena",
+            "library": "AIArena.dll",
+            "loadOrder": 1000
+        }
+    ]
+}

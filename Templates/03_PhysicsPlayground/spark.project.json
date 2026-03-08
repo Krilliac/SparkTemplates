@@ -1,0 +1,8 @@
+{
+    "projectName": "PhysicsPlayground",
+    "version": "0.1.0",
+    "engineVersion": "1.0.0",
+    "description": "Interactive physics sandbox — rigid bodies, colliders, raycasting, and spawning.",
+    "modules": ["PhysicsPlayground"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}
