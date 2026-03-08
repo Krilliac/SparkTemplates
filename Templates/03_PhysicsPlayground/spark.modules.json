@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "PhysicsPlayground",
+            "path": "PhysicsPlayground.dll",
+            "loadOrder": 1000
+        }
+    ]
+}

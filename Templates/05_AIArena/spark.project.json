@@ -1,0 +1,8 @@
+{
+    "projectName": "AIArena",
+    "version": "0.1.0",
+    "engineVersion": "1.0.0",
+    "description": "AI showcase — behavior trees, NavMesh pathfinding, perception, and steering behaviors.",
+    "modules": ["AIArena"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

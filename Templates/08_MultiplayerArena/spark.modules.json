@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "MultiplayerArena",
+            "library": "MultiplayerArena.dll",
+            "loadOrder": 1000
+        }
+    ]
+}

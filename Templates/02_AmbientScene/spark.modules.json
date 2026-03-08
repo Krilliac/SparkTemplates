@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "AmbientScene",
+            "path": "AmbientScene.dll",
+            "loadOrder": 1000
+        }
+    ]
+}

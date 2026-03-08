@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "ProceduralWorld",
+            "library": "ProceduralWorld.dll",
+            "loadOrder": 1000
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "projectName": "ScriptingPlayground",
+    "version": "0.1.0",
+    "engineVersion": "1.0.0",
+    "description": "AngelScript playground — runtime scripting, lifecycle callbacks, and hot-reload.",
+    "modules": ["ScriptingPlayground"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "ParticleShowcase",
+            "library": "ParticleShowcase.dll",
+            "loadOrder": 1000
+        }
+    ]
+}

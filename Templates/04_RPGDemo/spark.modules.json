@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "RPGDemo",
+            "path": "RPGDemo.dll",
+            "loadOrder": 1000
+        }
+    ]
+}

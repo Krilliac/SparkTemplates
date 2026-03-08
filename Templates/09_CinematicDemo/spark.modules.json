@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "CinematicDemo",
+            "library": "CinematicDemo.dll",
+            "loadOrder": 1000
+        }
+    ]
+}

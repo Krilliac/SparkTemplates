@@ -1,0 +1,8 @@
+{
+    "projectName": "RPGDemo",
+    "version": "0.1.0",
+    "engineVersion": "1.0.0",
+    "description": "RPG mechanics demo — inventory, quests, health, save/load, and event-driven gameplay.",
+    "modules": ["RPGDemo"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

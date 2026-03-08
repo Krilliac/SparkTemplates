@@ -1,0 +1,8 @@
+{
+    "projectName": "MultiplayerArena",
+    "version": "0.1.0",
+    "engineVersion": "1.0.0",
+    "description": "Networked multiplayer arena — UDP client/server, entity replication, lag compensation.",
+    "modules": ["MultiplayerArena"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

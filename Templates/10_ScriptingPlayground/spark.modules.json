@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "ScriptingPlayground",
+            "library": "ScriptingPlayground.dll",
+            "loadOrder": 1000
+        }
+    ]
+}

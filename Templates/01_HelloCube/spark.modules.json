@@ -1,0 +1,9 @@
+{
+    "modules": [
+        {
+            "name": "HelloCube",
+            "path": "HelloCube.dll",
+            "loadOrder": 1000
+        }
+    ]
+}
