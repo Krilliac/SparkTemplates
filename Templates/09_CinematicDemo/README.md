@@ -43,7 +43,21 @@ subtitles, audio cues, screen fades, and coroutine-driven scripted events.
 
 ## Building
 
+Requires an **installed** SparkEngine SDK (see the repository root
+[README](../../README.md#prerequisites) for install instructions).
+
 ```bash
-cmake -B build -DCMAKE_PREFIX_PATH=<SparkEngine install>
+cmake -B build -DCMAKE_PREFIX_PATH=<path-to-SparkEngine-install-prefix>
 cmake --build build --config Release
+```
+
+> `CMAKE_PREFIX_PATH` must point at the SparkEngine **install prefix** (the
+> directory you passed to `cmake --install --prefix`), **not** the build tree or
+> its `bin/` subdirectory.
+
+This produces `CinematicDemo.dll` (Windows) or `libCinematicDemo.so` (Linux).
+Run it with the engine:
+
+```bash
+SparkEngine.exe -game CinematicDemo.dll
 ```
