@@ -1,0 +1,24 @@
+--- ModuleManager.cpp (original)
++++ ModuleManager.cpp (headless support)
+@@ Add at the top of the file, after includes:
+
++#ifdef SPARK_HEADLESS_SUPPORT
++extern bool g_headlessMode;
++#endif
+
+@@ Replace the RenderAll() method:
+
+ void ModuleManager::RenderAll()
+ {
++#ifdef SPARK_HEADLESS_SUPPORT
++    // In headless/dedicated server mode, skip all rendering
++    if (g_headlessMode)
++        return;
++#endif
++
+     for (auto& entry : m_modules)
+     {
+         if (entry.initialized && entry.instance)
+             entry.instance->OnRender();
+     }
+ }

@@ -1,0 +1,14 @@
+{
+    "name": "DedicatedServer",
+    "version": "0.1.0",
+    "engine": "SparkEngine",
+    "description": "Headless dedicated game server with authoritative physics, AI bots, and full match lifecycle",
+    "author": "SparkEngine Templates",
+    "type": "dedicated-server",
+    "headless": true,
+    "settings": {
+        "tickRate": 60,
+        "defaultPort": 27015,
+        "maxPlayers": 16
+    }
+}
