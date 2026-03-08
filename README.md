@@ -19,6 +19,35 @@ A collection of example projects and templates for **SparkEngine**, progressing 
 | 11 | **StressTest** | Advanced | Simultaneous stress test of every engine system at extreme load |
 | 12 | **DedicatedServer** | Advanced | Headless authoritative game server with bot AI, match lifecycle, and admin console |
 
+## Prerequisites
+
+These templates require a **built and installed** copy of SparkEngine on your
+system. "Installed" means you have run CMake's install step — pointing at the
+raw build tree will not work because the exported CMake config files
+(`SparkEngineTargets.cmake`, `SparkGameModule.cmake`, etc.) are only generated
+during installation.
+
+### Installing SparkEngine
+
+```bash
+# 1. Build SparkEngine (if you haven't already)
+cd /path/to/SparkEngine
+cmake -B build
+cmake --build build --config Release
+
+# 2. Install to a local prefix (e.g. ~/SparkEngine-install)
+cmake --install build --prefix ~/SparkEngine-install
+```
+
+After this, `~/SparkEngine-install` will contain the engine executable, headers,
+libraries, and — critically — the CMake package config files that
+`find_package(SparkEngine)` needs.
+
+> **Common mistake:** Passing the build directory or the `bin/` subdirectory as
+> `CMAKE_PREFIX_PATH`. This will fail because the build tree does not contain
+> the installed config files. Always point at the **install prefix** (the path
+> you passed to `--prefix`).
+
 ## Getting Started
 
 Each template is a standalone CMake project located under `Templates/`:
@@ -38,9 +67,30 @@ To build a template:
 
 ```bash
 cd Templates/01_HelloCube
-cmake -B build
-cmake --build build
+cmake -B build -DCMAKE_PREFIX_PATH=~/SparkEngine-install
+cmake --build build --config Release
 ```
+
+## How templates relate to the engine
+
+Each template compiles into a **game module** — a shared library (`.dll` on
+Windows, `.so` on Linux) — not a standalone executable. The SparkEngine
+executable loads the game module at startup:
+
+```bash
+# Windows
+SparkEngine.exe -game HelloCube.dll
+
+# Linux
+./SparkEngine -game libHelloCube.so
+```
+
+Because templates are separate shared libraries, they are **built independently
+from the engine**. You do not need the engine source tree at build time — only
+the installed SDK (headers + CMake config). However, a game module cannot be
+hot-swapped while the engine is running; you must restart the engine to pick up
+a rebuilt module. (AngelScript scripts in Template 10 *can* be hot-reloaded at
+runtime, but compiled C++ modules cannot.)
 
 ## Template Details
 

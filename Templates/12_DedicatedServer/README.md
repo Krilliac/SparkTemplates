@@ -7,9 +7,12 @@ compensation, match lifecycle, and live admin console — all server-side.
 
 ## Quick start
 
+Requires an **installed** SparkEngine SDK (see the repository root
+[README](../../README.md#prerequisites) for install instructions).
+
 ```bash
 # Build the server module
-cmake -B build -DCMAKE_PREFIX_PATH=<SparkEngine install>
+cmake -B build -DCMAKE_PREFIX_PATH=<path-to-SparkEngine-install-prefix>
 cmake --build build --config Release
 
 # Launch headless (no window, no GPU)
@@ -18,6 +21,10 @@ SparkEngine.exe -headless -game DedicatedServer.dll
 # Or with -dedicated (alias)
 SparkEngine.exe -dedicated -game DedicatedServer.dll
 ```
+
+> `CMAKE_PREFIX_PATH` must point at the SparkEngine **install prefix** (the
+> directory you passed to `cmake --install --prefix`), **not** the build tree or
+> its `bin/` subdirectory.
 
 Clients connect from a separate windowed SparkEngine instance (e.g. the
 `08_MultiplayerArena` template) pointed at this server's IP and port.
@@ -277,11 +284,14 @@ bandwidth from the match server, keeping competitive play unaffected:
 ## Building
 
 ```bash
-cmake -B build -DCMAKE_PREFIX_PATH=<SparkEngine install>
+cmake -B build -DCMAKE_PREFIX_PATH=<path-to-SparkEngine-install-prefix>
 cmake --build build --config Release
 ```
 
 Requires SparkEngine built with `SPARK_HEADLESS_SUPPORT=ON` (default).
+
+This produces `DedicatedServer.dll` (Windows) or `libDedicatedServer.so`
+(Linux). See [Quick start](#quick-start) for launch commands.
 
 ## Linux
 
