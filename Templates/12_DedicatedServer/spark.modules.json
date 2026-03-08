@@ -1,0 +1,10 @@
+{
+    "modules": [
+        {
+            "name": "DedicatedServer",
+            "path": "DedicatedServer.dll",
+            "loadOrder": 1000,
+            "description": "Authoritative deathmatch server — headless, no GPU required"
+        }
+    ]
+}
