@@ -1,0 +1,13 @@
+--- CMakeLists.txt (original)
++++ CMakeLists.txt (headless support)
+@@ Add after the existing engine system options (SPARK_AI_SYSTEM, etc.):
+
++# Headless / Dedicated Server Support
++option(SPARK_HEADLESS_SUPPORT "Enable headless/dedicated server mode (-headless / -dedicated flags)" ON)
++if(SPARK_HEADLESS_SUPPORT)
++    target_compile_definitions(SparkEngineLib PUBLIC SPARK_HEADLESS_SUPPORT)
++    target_compile_definitions(SparkEngine PRIVATE SPARK_HEADLESS_SUPPORT)
++    message(STATUS "Headless/dedicated server mode: ENABLED")
++else()
++    message(STATUS "Headless/dedicated server mode: DISABLED")
++endif()
