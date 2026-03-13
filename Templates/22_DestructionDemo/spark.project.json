@@ -1,0 +1,8 @@
+{
+    "projectName": "DestructionDemo",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Destruction system — fracture patterns, debris, multi-stage damage.",
+    "modules": ["DestructionDemo"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

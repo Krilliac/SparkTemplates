@@ -1,0 +1,8 @@
+{
+    "projectName": "DialogueDemo",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Branching dialogue system — dialogue trees, conditions, events.",
+    "modules": ["DialogueDemo"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

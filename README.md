@@ -1,6 +1,6 @@
 # SparkTemplates
 
-A comprehensive collection of 20 example projects and templates for **SparkEngine**, progressing from basic "Hello World" samples to production-grade systems covering every engine capability.
+A comprehensive collection of 28 example projects and templates for **SparkEngine**, progressing from basic "Hello World" samples to production-grade systems covering every engine capability.
 
 ## Templates
 
@@ -26,6 +26,14 @@ A comprehensive collection of 20 example projects and templates for **SparkEngin
 | 18 | **ShadowLighting** | Advanced | Cascaded shadows, area lights, IBL, SSR, light probes, and shadow quality tuning |
 | 19 | **DebugVisualization** | Intermediate | Debug draw, wireframe, physics/NavMesh overlays, performance stats, and console |
 | 20 | **UIOverlay** | Advanced | HUD health bars, minimap, crosshair, damage indicators, menus, inventory, and compass |
+| 21 | **WeaponShowcase** | Intermediate | FPS weapon system — fire modes, recoil patterns, ADS, ammo, and reload |
+| 22 | **DestructionDemo** | Advanced | Destruction system — fracture patterns, debris physics, and multi-stage damage |
+| 23 | **DialogueDemo** | Intermediate | Branching dialogue trees — conditions, choices, events, and NPC conversations |
+| 24 | **ReplayDemo** | Advanced | Replay recording and playback — seek, speed control, kill cam, and file save/load |
+| 25 | **SplineRunner** | Intermediate | Spline paths and followers — CatmullRom, Bezier, Linear; Loop, PingPong, Once modes |
+| 26 | **Game2D** | Intermediate | 2D engine — sprites, tilemaps, Camera2D, parallax backgrounds, and 2D physics |
+| 27 | **WorldStreaming** | Advanced | Seamless area streaming, async asset loading, and floating-point origin rebasing |
+| 28 | **ModdingPlayground** | Advanced | Mod system — scanning, loading, dependencies, enable/disable, and console commands |
 
 ## Prerequisites
 
@@ -226,39 +234,96 @@ Complete HUD and menu system. Smooth-interpolated health bar with damage flash a
 
 **Controls:** Tab inventory, Escape pause menu, 1-4 notifications, H toggle HUD, M toggle minimap, X simulate damage
 
+### 21 — WeaponShowcase
+
+FPS weapon system reference. Three weapons: Pistol (semi-auto, high accuracy), Rifle (full-auto, moderate spread, recoil pattern), Shotgun (semi-auto, wide spread). Demonstrates fire modes, recoil that affects camera pitch, ADS zoom with FOV change, magazine and reserve ammo tracking, reload mechanics, muzzle flash point lights, and weapon switch animations. Event-driven sound playback for fire/reload.
+
+**Controls:** 1/2/3 switch weapons, LMB fire, RMB aim down sights, R reload
+
+### 22 — DestructionDemo
+
+Destruction system playground. Multiple destructible objects with different fracture patterns (Voronoi walls, Radial pillars, Slice floors, Uniform crates). Multi-stage damage progression from clean through cracked to fully destroyed with physics-driven debris. Supports point damage via raycast and area explosions. Debris has configurable lifetime and physics properties.
+
+**Controls:** LMB shoot (raycast damage), Space explosion, R reset all, 1-4 select fracture type
+
+### 23 — DialogueDemo
+
+Branching dialogue tree system. Three NPCs (Merchant, Guard, Wizard) each with multi-path conversation trees. Walk near an NPC and press E to initiate dialogue. Choose responses with number keys. Dialogue outcomes affect game state (flags, score). Conditional choices appear based on prior decisions. UI rendered via DebugDraw with speaker name, text box, and numbered options.
+
+**Controls:** WASD move, E talk to NPC, 1/2/3 choose dialogue option, Escape exit dialogue
+
+### 24 — ReplayDemo
+
+Replay recording and playback system. Records entity transforms and game events in real-time. Play back recordings with full timeline control: seek forward/backward, variable speed (0.25x to 4x), pause/resume. Kill cam mode replays the last kill from a cinematic angle in slow motion. Save replays to file and load them back. Status overlay shows recording/playing state, timeline position, and speed.
+
+**Controls:** F5 stop recording and play back, Left/Right seek, +/- speed, Space pause, K kill cam, F6 save, F7 load, F8 new recording
+
+### 25 — SplineRunner
+
+Spline path system demo. Three visible splines drawn with DebugDraw: a CatmullRom loop, a CubicBezier figure-8, and a Linear back-and-forth path. Colored follower entities travel along each spline with different modes (Loop, PingPong, Once). Attach the camera to any spline for a rail-cam experience. Control points visualized as spheres. Adjustable speed and pause controls.
+
+**Controls:** 1/2/3 attach camera to spline, +/- speed, Space pause, P toggle control points, Tab free camera, R reset followers
+
+### 26 — Game2D
+
+Full 2D engine showcase. Sprite rendering with SpriteAnimator (idle, walk, jump frame sequences). Tilemap-based level geometry. Three-layer parallax scrolling background (sky, mountains, trees). 2D physics with RigidBody2D and Collider2D for platformer mechanics. Camera2D with bounds and zoom. Collectible animated coins. NineSliceSprite UI panel for score display. PixelPerfectComponent for crisp rendering.
+
+**Controls:** A/D move, Space jump, +/- zoom
+
+### 27 — WorldStreaming
+
+Large-world streaming demonstration. Four distinct areas (Forest, Desert, Snow, City) arranged in a 2x2 grid. Areas load and unload seamlessly as the player walks between them using SeamlessAreaManager. AsyncAssetLoader handles background loading with progress indication. WorldOriginSystem rebases the floating-point origin when the player travels far from the world center, preventing precision loss. Debug overlays show area boundaries and origin offset.
+
+**Controls:** WASD move, F1 toggle area boundaries, F2 show origin info, Tab teleport between areas
+
+### 28 — ModdingPlayground
+
+Mod system integration demo. Three simulated mods registered programmatically: ColorMod (changes material colors), SpawnMod (adds decorative entities and NPCs), WeatherMod (adds weather effects, depends on ColorMod). Mod browser UI displays available mods with name, version, author, status, and dependency info. Dependency enforcement prevents loading mods with unsatisfied prerequisites. Console commands for mod management.
+
+**Controls:** M toggle mod browser, 1/2/3 toggle mods, L load enabled mods, U unload all, R rescan
+
 ## Engine Systems Covered
 
 | System | Templates |
 |--------|-----------|
 | **ECS** — Entity creation, components, world management | All |
-| **Physics** — Rigid bodies, colliders, collision events, raycasting | 03, 05, 08, 11, 12, 17, 19 |
+| **Physics** — Rigid bodies, colliders, collision events, raycasting | 03, 05, 08, 11, 12, 17, 19, 22 |
 | **AI** — Behavior trees, NavMesh, pathfinding, perception, steering | 05, 11, 12, 19 |
 | **Networking** — UDP client/server, replication, prediction, lag compensation | 08, 11, 12 |
 | **Rendering** — Meshes, materials, PBR, lighting, shadows, post-processing | 01, 06, 14, 18 |
 | **Animation** — Skeletal, state machines, blending, layers, IK, events | 13 |
 | **Particles** — Emitter shapes, blend modes, preset effects | 06, 11 |
-| **Audio** — 3D positional sound, music, buses, reverb, Doppler | 09, 15 |
+| **Audio** — 3D positional sound, music, buses, reverb, Doppler | 09, 15, 21 |
 | **Camera** — FPS, TPS, orbit, free-fly, shake, DOF, split-screen | 01, 16 |
 | **Scripting** — AngelScript with hot-reload and lifecycle callbacks | 10, 11 |
 | **Procedural Generation** — Noise functions, erosion, WFC | 07, 11 |
 | **Cinematics** — Sequencer, camera paths, interpolation, subtitles | 09, 16 |
 | **Save System** — Save, Load, QuickSave, QuickLoad, AutoSave | 04, 11, 12 |
-| **Events** — EventBus pub/sub for decoupled communication | 02, 03, 04, 05, 08, 13, 17, 20 |
+| **Events** — EventBus pub/sub for decoupled communication | 02, 03, 04, 05, 08, 13, 17, 20, 21, 22, 23, 24 |
 | **Day/Night & Weather** — Time-of-day cycles, weather transitions | 02, 11, 18 |
 | **UI/HUD** — Health bars, minimap, crosshair, menus, inventory | 20 |
-| **Debug Tools** — Debug draw, wireframe, perf stats, console | 19 |
+| **Debug Tools** — Debug draw, wireframe, perf stats, console | 19, 28 |
 | **Materials** — PBR, emissive, transparency, SSS, render paths | 14 |
 | **Shadows** — CSM, point/spot/area shadows, IBL, SSR, light probes | 18 |
+| **Weapons** — Fire modes, recoil, ADS, ammo, reload mechanics | 21 |
+| **Destruction** — Fracture patterns, debris, multi-stage damage | 22 |
+| **Dialogue** — Branching trees, conditions, choices, NPC conversations | 23 |
+| **Replay** — Recording, playback, seek, speed control, kill cam | 24 |
+| **Splines** — Path types, followers, Loop/PingPong/Once modes | 25 |
+| **2D Engine** — Sprites, tilemaps, Camera2D, parallax, 2D physics | 26 |
+| **World Streaming** — Area streaming, async loading, origin rebasing | 27 |
+| **Modding** — Mod scanning, loading, dependencies, console commands | 28 |
 
 ## Learning Path
 
 1. **Start here:** Templates 01-02 for ECS and engine basics
 2. **Core systems:** Templates 03-06 for physics, AI, particles, and RPG mechanics
 3. **Visual & audio:** Templates 13-15 for animation, materials, and audio
-4. **Camera & tools:** Templates 16, 19 for camera modes and debug tools
-5. **Content creation:** Templates 09-10 for cinematics and scripting
-6. **Gameplay:** Template 17 for a complete platformer game, 20 for HUD/UI
-7. **Advanced:** Templates 07-08, 11-12, 18 for procedural generation, networking, advanced lighting, stress testing, and dedicated servers
+4. **Camera & tools:** Templates 16, 19, 25 for camera modes, debug tools, and spline paths
+5. **Content creation:** Templates 09-10, 23 for cinematics, scripting, and dialogue
+6. **Gameplay:** Templates 17, 20, 21, 26 for platformer, HUD/UI, weapons, and 2D games
+7. **Advanced systems:** Templates 22, 24, 27, 28 for destruction, replay, world streaming, and modding
+8. **Infrastructure:** Templates 07-08, 11-12, 18 for procedural generation, networking, advanced lighting, stress testing, and dedicated servers
 
 ## License
 

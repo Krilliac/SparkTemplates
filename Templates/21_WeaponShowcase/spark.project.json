@@ -1,0 +1,8 @@
+{
+    "projectName": "WeaponShowcase",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "FPS weapon system — fire modes, recoil, ADS, ammo, reload.",
+    "modules": ["WeaponShowcase"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

@@ -1,0 +1,8 @@
+{
+    "projectName": "ModdingPlayground",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Mod system — scanning, loading, dependencies, enable/disable.",
+    "modules": ["ModdingPlayground"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

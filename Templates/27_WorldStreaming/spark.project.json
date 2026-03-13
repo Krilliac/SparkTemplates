@@ -1,0 +1,8 @@
+{
+    "projectName": "WorldStreaming",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Seamless area streaming and world origin rebasing for large worlds.",
+    "modules": ["WorldStreaming"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

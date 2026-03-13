@@ -1,0 +1,8 @@
+{
+    "projectName": "Game2D",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "2D engine features — sprites, tilemaps, Camera2D, parallax, 2D physics.",
+    "modules": ["Game2D"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}
