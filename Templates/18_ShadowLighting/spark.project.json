@@ -1,0 +1,8 @@
+{
+    "projectName": "ShadowLighting",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Advanced lighting and shadow showcase — CSM, point/spot/area shadows, IBL, SSR, SSAO, and day-night cycle.",
+    "modules": ["ShadowLighting"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

@@ -1,8 +1,8 @@
 {
     "projectName": "HelloCube",
-    "version": "0.1.0",
-    "engineVersion": "1.0.0",
-    "description": "Basic spinning cube — introduces ECS entities, Transform, MeshRenderer, and input handling.",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Basic spinning cube — introduces ECS entities, Transform, MeshRenderer, Camera, mouse orbit, and keyboard input.",
     "modules": ["HelloCube"],
     "defaultScene": "Assets/Scenes/Default.scene"
 }

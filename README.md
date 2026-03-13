@@ -1,12 +1,12 @@
 # SparkTemplates
 
-A collection of example projects and templates for **SparkEngine**, progressing from basic "Hello World" samples to production-grade systems like multiplayer networking and dedicated servers.
+A comprehensive collection of 20 example projects and templates for **SparkEngine**, progressing from basic "Hello World" samples to production-grade systems covering every engine capability.
 
 ## Templates
 
 | # | Name | Difficulty | Description |
 |---|------|------------|-------------|
-| 01 | **HelloCube** | Basic | ECS fundamentals — entity creation, components, input handling, and scene setup |
+| 01 | **HelloCube** | Basic | ECS fundamentals — entity creation, components, camera, mouse/keyboard input |
 | 02 | **AmbientScene** | Basic | Dynamic day/night cycles, weather systems, multiple light types, and EventBus usage |
 | 03 | **PhysicsPlayground** | Intermediate | Bullet Physics integration — rigid bodies, colliders, collision events, and runtime spawning |
 | 04 | **RPGDemo** | Intermediate | Health, inventory, quests, save/load systems, and gameplay event pipelines |
@@ -18,6 +18,14 @@ A collection of example projects and templates for **SparkEngine**, progressing 
 | 10 | **ScriptingPlayground** | Intermediate | AngelScript integration with hot-reload, lifecycle callbacks, and entity scripting |
 | 11 | **StressTest** | Advanced | Simultaneous stress test of every engine system at extreme load |
 | 12 | **DedicatedServer** | Advanced | Headless authoritative game server with bot AI, match lifecycle, and admin console |
+| 13 | **AnimationShowcase** | Intermediate | Skeletal animation, state machines, blending, layers, IK, and animation events |
+| 14 | **MaterialLab** | Intermediate | PBR materials, emissive, transparency, subsurface scattering, and render paths |
+| 15 | **AudioSandbox** | Intermediate | 3D positional audio, music playlists, bus mixing, reverb zones, and Doppler effect |
+| 16 | **CameraToolkit** | Intermediate | FPS, TPS, orbit, and free-fly cameras; shake, DOF, split-screen, and letterbox |
+| 17 | **PlatformerDemo** | Intermediate | 2.5D platformer with double-jump, moving platforms, enemies, coins, and checkpoints |
+| 18 | **ShadowLighting** | Advanced | Cascaded shadows, area lights, IBL, SSR, light probes, and shadow quality tuning |
+| 19 | **DebugVisualization** | Intermediate | Debug draw, wireframe, physics/NavMesh overlays, performance stats, and console |
+| 20 | **UIOverlay** | Advanced | HUD health bars, minimap, crosshair, damage indicators, menus, inventory, and compass |
 
 ## Prerequisites
 
@@ -56,6 +64,8 @@ Each template is a standalone CMake project located under `Templates/`:
 Templates/
 ├── 01_HelloCube/
 │   ├── CMakeLists.txt
+│   ├── spark.project.json
+│   ├── README.md
 │   └── Source/
 ├── 02_AmbientScene/
 │   ├── CMakeLists.txt
@@ -96,9 +106,9 @@ runtime, but compiled C++ modules cannot.)
 
 ### 01 — HelloCube
 
-The "Hello World" of SparkEngine. Creates an ECS world, attaches mesh and transform components to a cube entity, adds a point light, and handles keyboard input for movement, rotation, and scaling.
+The "Hello World" of SparkEngine. Creates an ECS world, attaches mesh and transform components to a cube entity, adds a point light and camera, and handles keyboard and mouse input for movement, rotation, scaling, and camera orbit.
 
-**Controls:** WASD move, Q/E rotate, R pitch, Space scale
+**Controls:** WASD move, Q/E rotate, R pitch, Space scale, Right-click drag orbit, Mouse wheel zoom
 
 ### 02 — AmbientScene
 
@@ -162,34 +172,93 @@ Exercises every major engine system simultaneously: 500+ ECS entities, 300 physi
 
 ### 12 — DedicatedServer
 
-A headless authoritative game server for FPS deathmatch. Runs without a window, GPU, or audio. Features server-side physics validation, AI bots that fill empty player slots, a full match lifecycle (WaitingForPlayers → Warmup → Playing → Cooldown → MapRotation), and a console command interface for live administration.
+A headless authoritative game server for FPS deathmatch. Runs without a window, GPU, or audio. Features server-side physics validation, AI bots that fill empty player slots, a full match lifecycle (WaitingForPlayers -> Warmup -> Playing -> Cooldown -> MapRotation), and a console command interface for live administration.
 
 **Server Commands:** `sv_status`, `sv_players`, `sv_kick`, `sv_bot_add`, `sv_bot_remove`, `sv_restart_round`, `sv_end_round`, `sv_save`, `sv_set`
 
 **Launch:** `./DedicatedServer -dedicated -port 27015 -maxplayers 16`
 
+### 13 — AnimationShowcase
+
+Skeletal animation system demo with a rigged character. Features an AnimationStateMachine driving transitions between Idle, Walk, Run, Jump, and Attack states based on speed and input. Dual animation layers allow attacking while running (upper body override on base body). Foot and hand IK keeps feet planted on uneven surfaces. Animation events trigger footstep sounds at specific keyframes. Spawn NPC patrollers and dancers with their own state machines.
+
+**Controls:** WASD move (triggers walk/run blend), Space jump, LMB attack, 1/2 spawn NPCs, I toggle IK, P pause animations
+
+### 14 — MaterialLab
+
+PBR material parameter playground. A grid of spheres shows all roughness/metallic combinations side by side. Demonstrates emissive materials that pulse and interact with bloom, transparent objects with alpha blending, subsurface scattering for skin/wax, material instance cloning with parameter overrides, UV tiling animation, and render path switching between Forward, Deferred, and ForwardPlus.
+
+**Controls:** 1-4 cycle material presets, M toggle metallic, T toggle transparency, E toggle emissive, R cycle render paths, +/- roughness
+
+### 15 — AudioSandbox
+
+Full audio system exploration. Walk around a scene with 3D positioned sound emitters (fountain, fireplace, wind, bell, music box) that attenuate with distance. Cycle through reverb zones (None, SmallRoom, Hall, Cave, Arena, Outdoor). Control audio bus volumes independently (Music, SFX, Ambient, Voice). Trigger one-shot sounds, start/stop background music with crossfade, and spawn moving sound sources for Doppler effect demonstration.
+
+**Controls:** WASD move listener, 1-5 play sounds, M toggle music, R cycle reverb, +/- volume, Space spawn moving source
+
+### 16 — CameraToolkit
+
+Camera system reference. Tab through four camera modes: First-Person (WASD + mouse look), Third-Person chase (spring-damped follow with orbit), Orbit (rotate/zoom around a point), and Free-Fly spectator (6DOF with shift for descent). Camera shake with parametric trauma/decay. Depth of Field with adjustable focus distance and aperture. Split-screen (two cameras, two viewports). Cinematic letterbox mode. FOV zoom animation (Z for sniper zoom).
+
+**Controls:** Tab cycle modes, WASD/mouse move, K shake, F toggle DOF, V split-screen, L letterbox, Z zoom, P play camera path, +/- FOV
+
+### 17 — PlatformerDemo
+
+A playable 2.5D platformer game. Player character with gravity, jumping, and double-jump. Moving platforms on sine-wave paths. Spinning collectible coins with pickup events and score tracking. Patrol enemies that reverse direction at boundaries. Death zones below the map trigger respawn at the last checkpoint. Spring-loaded jump pads launch the player upward. Smooth-damped camera follow. Lives system with game-over and restart.
+
+**Controls:** A/D move, Space jump (double-jump in air), R restart level
+
+### 18 — ShadowLighting
+
+Advanced lighting and shadow techniques. Cascaded Shadow Maps with configurable split distances. Point light omnidirectional shadows. Spot light shadows with cookie textures. Area lights (rectangle, disc) with soft shadows. Shadow quality cycling (resolution, PCF filter size, bias). Image-Based Lighting with environment cubemaps. Screen-Space Reflections. SSAO with tunable radius. Day-to-night transition showing shadow direction change. Interior and exterior lighting scenarios. Light probe placement for indirect lighting.
+
+**Controls:** 1-4 toggle light types, S cycle shadow quality, C toggle CSM debug, I toggle IBL, R toggle SSR, A toggle AO, +/- intensity, T time-of-day
+
+### 19 — DebugVisualization
+
+Engine development and debugging tools. DebugDraw primitives (lines, wireframe boxes, spheres, arrows, screen text). Wireframe rendering mode toggle. Physics collider visualization (shapes and contact points). NavMesh walkable area overlay. AI perception cone display (sight/hearing). Performance statistics (FPS, frame time, draw calls, triangles, entity count, memory). Entity inspector (click to select, show components). Frustum and bounding box visualization. World-space grid. Raycast visualization (hit point and normal). SimpleConsole with custom commands.
+
+**Controls:** F1 debug overlay, F2 wireframe, F3 physics debug, F4 NavMesh, F5 perf stats, G grid, Click raycast/select, C console
+
+### 20 — UIOverlay
+
+Complete HUD and menu system. Smooth-interpolated health bar with damage flash and heal glow. Ammo counter with reload animation. Minimap with player dot, enemy markers, and objective icons. Dynamic crosshair (spread widens with movement). Damage direction indicators (red arc from hit angle). Score display and kill feed. Toast notifications with timed fade-out. Pause menu with options. Inventory grid display. Compass/bearing indicator. Interaction prompts. Boss health bar. Countdown timer.
+
+**Controls:** Tab inventory, Escape pause menu, 1-4 notifications, H toggle HUD, M toggle minimap, X simulate damage
+
 ## Engine Systems Covered
 
-- **ECS** — Entity creation, component attachment, world management
-- **Physics** — Bullet integration, rigid bodies, colliders, collision events
-- **AI** — Behavior trees, NavMesh, pathfinding, perception, steering
-- **Networking** — UDP client/server, replication, prediction, lag compensation
-- **Rendering** — Mesh rendering, materials, lighting, shadows, post-processing
-- **Particles** — Emitter shapes, blend modes, preset effects
-- **Audio** — 3D positional sound, music management, reverb zones
-- **Scripting** — AngelScript with hot-reload and lifecycle callbacks
-- **Procedural Generation** — Noise functions, erosion, Wave Function Collapse
-- **Cinematics** — Sequencer, camera paths, interpolation, subtitles
-- **Save System** — Save, Load, QuickSave, QuickLoad, AutoSave
-- **Events** — EventBus pub/sub for decoupled system communication
-- **Day/Night & Weather** — Time-of-day cycles, weather state transitions
+| System | Templates |
+|--------|-----------|
+| **ECS** — Entity creation, components, world management | All |
+| **Physics** — Rigid bodies, colliders, collision events, raycasting | 03, 05, 08, 11, 12, 17, 19 |
+| **AI** — Behavior trees, NavMesh, pathfinding, perception, steering | 05, 11, 12, 19 |
+| **Networking** — UDP client/server, replication, prediction, lag compensation | 08, 11, 12 |
+| **Rendering** — Meshes, materials, PBR, lighting, shadows, post-processing | 01, 06, 14, 18 |
+| **Animation** — Skeletal, state machines, blending, layers, IK, events | 13 |
+| **Particles** — Emitter shapes, blend modes, preset effects | 06, 11 |
+| **Audio** — 3D positional sound, music, buses, reverb, Doppler | 09, 15 |
+| **Camera** — FPS, TPS, orbit, free-fly, shake, DOF, split-screen | 01, 16 |
+| **Scripting** — AngelScript with hot-reload and lifecycle callbacks | 10, 11 |
+| **Procedural Generation** — Noise functions, erosion, WFC | 07, 11 |
+| **Cinematics** — Sequencer, camera paths, interpolation, subtitles | 09, 16 |
+| **Save System** — Save, Load, QuickSave, QuickLoad, AutoSave | 04, 11, 12 |
+| **Events** — EventBus pub/sub for decoupled communication | 02, 03, 04, 05, 08, 13, 17, 20 |
+| **Day/Night & Weather** — Time-of-day cycles, weather transitions | 02, 11, 18 |
+| **UI/HUD** — Health bars, minimap, crosshair, menus, inventory | 20 |
+| **Debug Tools** — Debug draw, wireframe, perf stats, console | 19 |
+| **Materials** — PBR, emissive, transparency, SSS, render paths | 14 |
+| **Shadows** — CSM, point/spot/area shadows, IBL, SSR, light probes | 18 |
 
 ## Learning Path
 
 1. **Start here:** Templates 01-02 for ECS and engine basics
 2. **Core systems:** Templates 03-06 for physics, AI, particles, and RPG mechanics
-3. **Content tools:** Templates 09-10 for cinematics and scripting
-4. **Advanced:** Templates 07-08, 11-12 for procedural generation, networking, stress testing, and dedicated servers
+3. **Visual & audio:** Templates 13-15 for animation, materials, and audio
+4. **Camera & tools:** Templates 16, 19 for camera modes and debug tools
+5. **Content creation:** Templates 09-10 for cinematics and scripting
+6. **Gameplay:** Template 17 for a complete platformer game, 20 for HUD/UI
+7. **Advanced:** Templates 07-08, 11-12, 18 for procedural generation, networking, advanced lighting, stress testing, and dedicated servers
 
 ## License
 

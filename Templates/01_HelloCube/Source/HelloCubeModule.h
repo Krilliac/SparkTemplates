@@ -1,19 +1,21 @@
 #pragma once
 /**
  * @file HelloCubeModule.h
- * @brief BASIC — Spinning cube with keyboard controls.
+ * @brief BASIC — Spinning cube with keyboard and mouse controls.
  *
  * Demonstrates:
- *   - Creating an entity via the ECS World
- *   - Attaching NameComponent, Transform, and MeshRenderer
- *   - Reading keyboard input each frame
+ *   - Creating entities via the ECS World
+ *   - Attaching NameComponent, Transform, MeshRenderer, and Camera
+ *   - Reading keyboard AND mouse input each frame
  *   - Rotating / moving an entity through its Transform
- *   - Adding a point light so the cube is visible
+ *   - Adding point and directional lights
+ *   - Setting up a Camera entity for player view
+ *   - Color tinting via material overrides
  *
  * Spark Engine systems used:
  *   Core       — IModule, IEngineContext, ModuleInfo
- *   ECS        — World, NameComponent, Transform, MeshRenderer, LightComponent
- *   Input      — InputManager  (IsKeyDown / WasKeyPressed)
+ *   ECS        — World, NameComponent, Transform, MeshRenderer, LightComponent, Camera
+ *   Input      — InputManager  (IsKeyDown / WasKeyPressed / GetMouseDelta)
  *   Rendering  — GraphicsEngine (implicitly via RenderSystem)
  */
 
@@ -28,7 +30,7 @@ public:
 
     Spark::ModuleInfo GetModuleInfo() const override
     {
-        return { "HelloCube", "0.1.0", SPARK_SDK_VERSION, 1000 };
+        return { "HelloCube", "0.2.0", SPARK_SDK_VERSION, 1000 };
     }
 
     void OnLoad(Spark::IEngineContext* ctx) override;
@@ -41,12 +43,19 @@ private:
     Spark::IEngineContext* m_ctx = nullptr;
 
     // ECS handles
-    entt::entity m_cube  = entt::null;
-    entt::entity m_light = entt::null;
+    entt::entity m_cube   = entt::null;
+    entt::entity m_light  = entt::null;
+    entt::entity m_camera = entt::null;
+    entt::entity m_ground = entt::null;
 
     // Rotation state
     float m_yaw   = 0.0f;
     float m_pitch = 0.0f;
+
+    // Camera orbit (mouse-driven)
+    float m_camYaw   = 0.0f;
+    float m_camPitch = -20.0f;
+    float m_camDist  = 10.0f;
 
     // Movement speed (units / second)
     static constexpr float kMoveSpeed   = 5.0f;

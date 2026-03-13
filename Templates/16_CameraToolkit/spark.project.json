@@ -1,0 +1,8 @@
+{
+    "projectName": "CameraToolkit",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Camera system capabilities — first-person, third-person, orbit, free-fly, shake, DOF, interpolation, split-screen, and cinematic modes.",
+    "modules": ["CameraToolkit"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

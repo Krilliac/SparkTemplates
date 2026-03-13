@@ -1,0 +1,8 @@
+{
+    "projectName": "MaterialLab",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Material and rendering system — PBR parameters, transparency, emissive, SSS, material instances, and render paths.",
+    "modules": ["MaterialLab"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

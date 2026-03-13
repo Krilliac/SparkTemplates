@@ -1,6 +1,6 @@
 {
     "name": "DedicatedServer",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "engine": "SparkEngine",
     "description": "Headless dedicated game server with authoritative physics, AI bots, and full match lifecycle",
     "author": "SparkEngine Templates",
