@@ -1,7 +1,7 @@
 {
     "projectName": "ParticleShowcase",
-    "version": "0.1.0",
-    "engineVersion": "1.0.0",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
     "description": "Visual effects showcase — particles, decals, fog modes, and post-processing.",
     "modules": ["ParticleShowcase"],
     "defaultScene": "Assets/Scenes/Default.scene"

@@ -1,0 +1,8 @@
+{
+    "projectName": "UIOverlay",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "UI/HUD rendering — health bar, ammo counter, minimap, crosshair, damage indicators, menus, inventory, and more.",
+    "modules": ["UIOverlay"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

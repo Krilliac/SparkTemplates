@@ -34,7 +34,7 @@ class CinematicDemoModule final : public Spark::IModule
 public:
     Spark::ModuleInfo GetModuleInfo() const override
     {
-        return { "CinematicDemo", "0.1.0", SPARK_SDK_VERSION, 1000 };
+        return { "CinematicDemo", "0.2.0", SPARK_SDK_VERSION, 1000 };
     }
 
     void OnLoad(Spark::IEngineContext* ctx) override;

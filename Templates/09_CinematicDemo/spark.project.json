@@ -1,7 +1,7 @@
 {
     "projectName": "CinematicDemo",
-    "version": "0.1.0",
-    "engineVersion": "1.0.0",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
     "description": "Cinematic demo — sequencer camera paths, subtitles, audio cues, fades, and coroutines.",
     "modules": ["CinematicDemo"],
     "defaultScene": "Assets/Scenes/Default.scene"

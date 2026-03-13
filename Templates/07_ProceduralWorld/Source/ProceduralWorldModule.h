@@ -30,7 +30,7 @@ class ProceduralWorldModule final : public Spark::IModule
 public:
     Spark::ModuleInfo GetModuleInfo() const override
     {
-        return { "ProceduralWorld", "0.1.0", SPARK_SDK_VERSION, 1000 };
+        return { "ProceduralWorld", "0.2.0", SPARK_SDK_VERSION, 1000 };
     }
 
     void OnLoad(Spark::IEngineContext* ctx) override;

@@ -1,0 +1,8 @@
+{
+    "projectName": "AudioSandbox",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Complete audio system — 3D positional audio, reverb zones, Doppler, music playlists, occlusion, and EventBus integration.",
+    "modules": ["AudioSandbox"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

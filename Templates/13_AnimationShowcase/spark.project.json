@@ -1,0 +1,8 @@
+{
+    "projectName": "AnimationShowcase",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Skeletal animation system — state machines, blending, layers, IK, and animation events.",
+    "modules": ["AnimationShowcase"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

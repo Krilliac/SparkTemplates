@@ -1,7 +1,8 @@
 # 01 — Hello Cube  (Basic)
 
 A minimal Spark Engine project that creates a spinning cube you can move with
-the keyboard.  This is the "Hello World" of Spark and the best place to start.
+the keyboard and orbit with the mouse.  This is the "Hello World" of Spark and
+the best place to start.
 
 ## What you will learn
 
@@ -12,8 +13,10 @@ the keyboard.  This is the "Hello World" of Spark and the best place to start.
 | Creating entities | `World::CreateEntity()` |
 | Adding components | `World::AddComponent<T>()` |
 | Core components | `NameComponent`, `Transform`, `MeshRenderer` |
+| Camera setup | `Camera` component (FOV, near/far, active) |
 | Lighting | `LightComponent` (Point light) |
-| Input polling | `InputManager::IsKeyDown()`, `WasKeyPressed()` |
+| Keyboard input | `InputManager::IsKeyDown()`, `WasKeyPressed()` |
+| Mouse input | `GetMouseDelta()`, `GetMouseScrollDelta()`, `IsMouseButtonDown()` |
 
 ## Controls
 
@@ -22,7 +25,9 @@ the keyboard.  This is the "Hello World" of Spark and the best place to start.
 | W / A / S / D | Move cube |
 | Q / E | Rotate left / right |
 | R | Pitch up |
-| Space | Toggle 1x ↔ 2x scale |
+| Space | Toggle 1x / 2x scale |
+| Right-click drag | Orbit camera around cube |
+| Mouse wheel | Zoom in / out |
 
 ## Building
 

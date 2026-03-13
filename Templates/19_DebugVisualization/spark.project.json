@@ -1,0 +1,8 @@
+{
+    "projectName": "DebugVisualization",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "Debug and development tools — DebugDraw, wireframe, physics overlay, NavMesh debug, performance stats, entity inspector, and console.",
+    "modules": ["DebugVisualization"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

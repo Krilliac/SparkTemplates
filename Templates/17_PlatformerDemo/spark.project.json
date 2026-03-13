@@ -1,0 +1,8 @@
+{
+    "projectName": "PlatformerDemo",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
+    "description": "2.5D platformer — player physics, moving platforms, coins, patrol enemies, checkpoints, and camera follow.",
+    "modules": ["PlatformerDemo"],
+    "defaultScene": "Assets/Scenes/Default.scene"
+}

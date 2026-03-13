@@ -1,7 +1,7 @@
 {
     "projectName": "StressTest",
-    "version": "0.1.0",
-    "engineVersion": "1.0.0",
+    "version": "0.2.0",
+    "engineVersion": "1.1.0",
     "description": "Maximum engine stress test — ALL systems running simultaneously at extreme load.",
     "modules": ["StressTest"],
     "defaultScene": "Assets/Scenes/Default.scene"
